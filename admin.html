@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+</head>
+<body>
+
+<h2>ADMIN PANEL</h2>
+
+<input id="pass" placeholder="Password"><br>
+<input id="key" placeholder="New Key"><br>
+<input id="limit" placeholder="Limit"><br>
+<input id="days" placeholder="Days"><br>
+
+<button onclick="create()">Create</button>
+
+<pre id="out"></pre>
+
+<script>
+const base = "";
+
+function create(){
+  let pass = document.getElementById("pass").value;
+  let key = document.getElementById("key").value;
+  let limit = document.getElementById("limit").value;
+  let days = document.getElementById("days").value;
+
+  fetch(`/admin/create?pass=${pass}&key=${key}&limit=${limit}&days=${days}`)
+  .then(r=>r.json())
+  .then(d=>document.getElementById("out").innerText=JSON.stringify(d,null,2));
+}
+</script>
+
+</body>
+</html>
