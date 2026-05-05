@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User Panel</title>
+</head>
+<body>
+
+<h2>Check API Key</h2>
+
+<input id="key" placeholder="Enter Key">
+<button onclick="check()">Check</button>
+
+<pre id="out"></pre>
+
+<script>
+function check(){
+  let key = document.getElementById("key").value;
+
+  fetch(`/api/status?key=${key}`)
+  .then(r=>r.json())
+  .then(d=>document.getElementById("out").innerText=JSON.stringify(d,null,2));
+}
+</script>
+
+</body>
+</html>
