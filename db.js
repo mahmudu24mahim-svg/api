@@ -1,14 +1,9 @@
 let db = {
-  users: {
-    "USER123": {
-      limit: 10,
-      used: 0
-    },
-    "ADMIN999": {
-      limit: 50,
-      used: 0
-    }
-  }
+  adminPassword: "admin123",
+
+  mainApiKey: "unknown34",
+
+  users: {}
 };
 
 module.exports = db;
